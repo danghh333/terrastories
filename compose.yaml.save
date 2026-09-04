@@ -28,7 +28,7 @@ services:
     depends_on:
       - db
     ports:
-        # Intended for use with HOST_HOSTNAME set
+      # Intended for use with HOST_HOSTNAME set
       - 3000:3000 # Standard Rails development
       - 3035:3035 # For Shakapacker/Webpack development server
     expose:
