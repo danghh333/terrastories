@@ -71,7 +71,7 @@ services:
     depends_on:
       - localweb
       - db
-      - tileserver
+#      - tileserver
     environment:
       - DEFAULT_HOST=terrastories.local
     volumes:
@@ -95,34 +95,35 @@ services:
     volumes:
       - ./data/media:/media
       - ./data/import/media:/api/import/media
+      - ./custom/limit_locales.rb:/api/config/initializers/zz_limit_locales.rb:ro
     environment:
       - RAILS_ENV=offline
       - PORT=3030
       - VIRTUAL_PORT=3030
       - VIRTUAL_HOST=terrastories.local,${HOST_HOSTNAME-terrastories.local}
       - VIRTUAL_PATH=/
-      - USE_LOCAL_MAP_SERVER=true
-      - OFFLINE_MAP_STYLE=http://terrastories.local/tileserver/styles/terrastories-map/style.json
+      - USE_LOCAL_MAP_SERVER=false
+#      - OFFLINE_MAP_STYLE=http://terrastories.local/tileserver/styles/terrastories-map/style.json
       # DATABASE_URL is configured the same as config/database.yaml for backwards compatibility
       # with existing servers that used to run using "development" mode, or offline with a full
       # dev built image.
       - DATABASE_URL=${DATABASE_URL-postgresql://postgres:postgres@db:5432/terrastories-dev}
 
-  tileserver:
-    profiles:
-      - offline
-    restart: unless-stopped
-    image: maptiler/tileserver-gl:v4.6.5
-    command: --public_url http://terrastories.local/tileserver/
-    env_file:
-      - .env
-    volumes:
-      - ./tileserver/data:/data
-    environment:
-      - VIRTUAL_HOST=terrastories.local
-      - VIRTUAL_PATH=/tileserver/
-      - VIRTUAL_DEST=/
-      - VIRTUAL_PORT=8080
+#  tileserver:
+#    profiles:
+#      - offline
+#    restart: unless-stopped
+#    image: maptiler/tileserver-gl:v4.6.5
+#    command: --public_url http://terrastories.local/tileserver/
+#    env_file:
+#      - .env
+#    volumes:
+#      - ./tileserver/data:/data
+#    environment:
+#      - VIRTUAL_HOST=terrastories.local
+#      - VIRTUAL_PATH=/tileserver/
+#      - VIRTUAL_DEST=/
+#      - VIRTUAL_PORT=8080
 
 volumes:
   postgres_data:

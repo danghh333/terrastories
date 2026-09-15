@@ -128,9 +128,7 @@ module Importable
         # Story Media Association
         # This must be after attachment attributes to ensure files are correctly
         # matched when "media" is used for attachment key.
-        if attributes["media"].present?
-          story_media = attributes.delete("media")
-        end
+        story_media = attributes.delete("media")
 
         # Find or create has_many* relationships
         @klass.associated_attribute_names.each do |association|

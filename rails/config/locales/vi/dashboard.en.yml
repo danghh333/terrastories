@@ -1,7 +1,22 @@
-ja:
+en:
   profile: Profile
-  interviewer: インタビュアー
+  interviewer: Interviewer
   import: Import
+  protomaps_basemap_styles:
+    contrast: Contrast
+    light: Light
+    dark: Dark
+    white: White
+    grayscale: Grayscale
+    black: Black
+  protomaps_basemap_markers:
+    default: "#3FB1CE"
+    contrast: "#B5C481"
+    light: "#3FB1CE"
+    dark: "#555"
+    white: "#bbb"
+    grayscale: "#999"
+    black: "#666"
   map:
     center: Map Center
     bounds: Map Bounds
@@ -10,6 +25,8 @@ ja:
     ne_corner: Northeast Corner
     unrestricted_bounds: Allow unrestricted bounds
     online: Online Map Configuration
+    mapbox_configuration: Mapbox Map Configuration (Optional)
+    protomaps_configuration: Protomaps API Configuration (Optional)
     settings: Map Settings
     settings_description: Customize your community's map settings.
     projection:
@@ -23,39 +40,47 @@ ja:
       globe: Globe
   dashboard:
     communities:
-      last_updated_on: 最終更新日 %{last_updated_on}
+      last_updated_on: Last updated on %{last_updated_on}
     back_to_app: Back to App
     community_settings: Community Settings
+    community:
+      settings: Settings
+      make_public: Public exploration of your community
+      public_link_available: Your public community is available here
+      copy_to_clipboard: Copy to Clipboard
+      copied_to_clipboard: Copied
     headings:
-      new_resource: "%{name}新規作成"
+      new_resource: New %{name}
     actions:
-      confirm: よろしいですか？
-      destroy: 削除
-      edit: 編集
-      new: 新規作成
-      back: 戻る
-      show_resource: "%{name}"
+      confirm: Are you sure?
+      destroy: Delete
+      edit: Edit
+      new: New
+      back: Back
+      show_resource: Show %{name}
     theme:
       welcome_screen: Welcome Screen
       background_img: Customize the background image on the landing page of your community.
+      display_image: Your Community logo or another image to display as your community's public image.
       sponsor_logos: Display logos on your community page. This could be your organization's logo, or that of a project sponsor. Multiple logos can be added.
   search:
-    clear: クリア
-    label: 検索
+    clear: Clear search
+    label: Search
     heading: Search Results
-    results: 結果
+    results: results
   filter:
     all: All
     any: Any
-    label: フィルタ
-    clear: クリアフィルタ
+    label: Filter
+    clear: Clear Filters
   list:
     prev: Prev
     next: Next
     no_results: There are no %{resources} available.
     no_nested_results: This %{resource} has no %{resources}.
   sort:
-    label: "並び替え："
-    name: アルファベット順
-    created_at: 作成日
-    updated_at: 最終更新日
+    label: Sort by
+    direction: Sort dir
+    name: alphabetical
+    created_at: date created
+    updated_at: date last updated
